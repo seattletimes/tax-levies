@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_head.html") %>
+  </head>
+  <body ng-app="tax-levies">
+
+    <responsive-child>
+    
+      <div class="outmost" ng-controller="TaxController">
+        <div class="year" ng-repeat="year in data">
+          <div ng-repeat="levy in year" class="bar" ng-if="levy !== 'year'" style="width: {{levy / max * 100}}%"></div>
+        </div>
+      </div>
+
+    </responsive-child>
+
+    <script>
+      var taxData = <%= JSON.stringify(csv.taxData) %>
+    </script>
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
