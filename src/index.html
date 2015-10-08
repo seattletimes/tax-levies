@@ -10,10 +10,10 @@
   <body ng-app="tax-levies">
 
     <responsive-child>
-    
+
       <div class="outmost" ng-controller="TaxController">
         <div class="year" ng-repeat="year in data">
-          <div ng-repeat="levy in year" class="bar" ng-if="levy !== 'year'" style="width: {{levy / max * 100}}%"></div>
+          <div ng-repeat="levy in year" class="bar" ng-if="levy !== 'year'" style="width: {{levy.percent}}%; background: {{levy.color}}"></div>
         </div>
       </div>
 
