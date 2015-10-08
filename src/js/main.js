@@ -7,25 +7,32 @@ require("angular");
 
 var app = angular.module("tax-levies", []);
 
+var housing = '#008778';
+var families = '#f36f21';
+var seattleCenter = '#60489d';
+var parks = '#da2128';
+var transportation = "#3887ba";
+var other ='#e3a51d';
+
 var levyLookup = {
-  "1986 Low Income Housing": '#008778',
-  "Seattle Art Museum": '#e3a51d',
-  "1990 Families/Ed Levy": '#f36f21',
-  "1991 Seattle Center/Comm Ctrs": '#60489d',
-  "1995 Low Income Housing": '#008778',
-  "1997 Families/Ed Levy": '#f36f21',
-  "1999 Seattle Center/Comm Ctrs": '#60489d',
-  "2000 Parks for All Levy": '#da2128',
-  "2002 Low Income Housing": '#008778',
-  "Fire facilities levy": '#2a9964',
-  "2004 Families/Ed Levy": '#f36f21',
-  "Transportation": '#2384c6',
-  "Pike Place Market": '#74517a',
-  "2008 Parks Levy": '#da2128',
-  "2009 Housing Levy": '#5cafc9',
-  "2011 Families/Ed Levy": '#f36f21',
-  "2012 Library": '#98a5d4',
-  "2014 Preschool Levy": '#7b5aa6'
+  "1986 Low Income Housing": housing,
+  "Seattle Art Museum": other,
+  "1990 Families/Ed Levy": families,
+  "1991 Seattle Center/Comm Ctrs": seattleCenter,
+  "1995 Low Income Housing": housing,
+  "1997 Families/Ed Levy": families,
+  "1999 Seattle Center/Comm Ctrs": seattleCenter,
+  "2000 Parks for All Levy": parks,
+  "2002 Low Income Housing": housing,
+  "Fire facilities levy": other,
+  "2004 Families/Ed Levy": families,
+  "Transportation": transportation,
+  "Pike Place Market": other,
+  "2008 Parks Levy": parks,
+  "2009 Housing Levy": housing,
+  "2011 Families/Ed Levy": families,
+  "2012 Library": other,
+  "2014 Preschool Levy": families
 };
 
 var max = 0;
