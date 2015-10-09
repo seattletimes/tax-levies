@@ -14,6 +14,11 @@ body {
   font-size: 12px;
 }
 
+.fa {
+  padding-left: 13px;
+  color: @df-dark-gray;
+}
+
 .outmost {
   width: 100%;
   padding: 20px 0;
@@ -24,17 +29,14 @@ body {
 
 .title {
   font-weight: bold;
-  font-size: 28px;
+  font-size: 24px;
   text-align: center;
-
-  @media @mobile {
-    font-size: 24px;
-  }
+  padding-bottom: 5px;
 }
 
 .chatter {
   font-size: 15px;
-  text-align: center;
+  // text-align: center;
   padding-bottom: 20px;
 
   @media @mobile {
@@ -77,6 +79,7 @@ body {
 
 .key-row {
   padding-bottom: 1px;
+  margin-left: 15px;
 }
 
 .swatch {
@@ -84,21 +87,18 @@ body {
   height: 8px;
   display: inline-block;
   margin-right: 2px;
-  margin-left: 10px;
-}
-
-.label, .bar {
-  opacity: .5;
-
-  &.bolded {
-    opacity: 1;
-  }
 }
 
 .label {
   .flex(0 0 35px);
   display: inline-block;
-  font-weight: bold;
+  color: @df-middle-gray;
+
+  &.bolded {
+    color: black;
+    font-weight: bold;
+    border-right: 1px dotted @df-border-gray;
+  }
 }
 
 .bar-box {
@@ -109,7 +109,7 @@ body {
   height: 18px;
   display: inline-block;
   // outline: 1px solid white;
-  margin-bottom: 2px;
+  // margin-bottom: 2px;
 }
 
 .source {

@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <%= t.include("partials/_head.html") %>
   </head>
   <body ng-app="tax-levies">
@@ -13,17 +14,18 @@
 
       <div class="outmost" ng-controller="TaxController">
         
-        <div class="title">Title goes here</div>
-        <div class="chatter">Chatter goes here</div>
+        <div class="title">Twenty years of Seattle property taxes</div>
+        <div class="chatter">Property-tax dollars paid to the city of Seattle have increased over the past 20 years, in part due to levies approved by voters. There have been more and larger levies on Seattle ballots recently, which local officials attribute in part to state restrictions on property-tax increases championed by Tim Eyman. The graphic below shows only dollars paid to the city; Seattle property owners pay additional taxes to other jurisdictions, such as the state, county, port and school district.</div>
         <div class="year" ng-click="showTooltip(year)" ng-class="{selected: selected == year}" ng-repeat="year in data">
           <div class="label" ng-class="{bolded: selected == year}">{{year.year}}</div>
           <div class="bar-box">
-            <div ng-repeat="levy in year.levies" class="bar" ng-class="{bolded: selected == year}" style="width: {{levy.percent}}%; background: {{levy.color}}"></div>
+            <div ng-repeat="levy in year.levies" class="bar" ng-class="{bolded: selected == year}" ng-style="{width: levy.percent + '%', background: levy.color}"></div>
 
             <div class="key" ng-class="{shown: selected == year}">
+              <i class="fa fa-chevron-down"></i>
               <div class="key-box" ng-repeat="levy in year.levies">
                 <div class="key-row" ng-if="levy.number !== 0">
-                  <div class="swatch" style="background: {{levy.color}}"></div> {{levy.name}} (${{levy.rounded}} million)
+                  <div class="swatch" ng-style="{background: levy.color}"></div> {{levy.name}} (${{levy.rounded}} million)
                 </div>
               </div>
             </div>
@@ -34,7 +36,7 @@
 
         <div class="source">
           <em>Note: Adjusted for inflation.<br>
-          Sources: Seattle Budget Office, Office of Councilmember Tim Burgess</em>
+          Source: City of Seattle</em>
         </div>
         <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
       </div>
