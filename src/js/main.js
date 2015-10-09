@@ -52,11 +52,14 @@ taxData.forEach(function(year) {
   yearObj.levies = [];
   for (var levy in year) {
     if (levy !== 'year') {
+      var rounded = Math.round(year[levy]/100000)/10;
+
       yearObj.levies.push({
         name: levy,
         number: year[levy],
         percent: year[levy] / max * 100,
-        color: levyLookup[levy]
+        color: levyLookup[levy],
+        rounded: rounded
       });
     }
   }

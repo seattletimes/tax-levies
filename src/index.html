@@ -23,7 +23,7 @@
             <div class="key" ng-show="selected == year">
               <div class="key-box" ng-repeat="levy in year.levies">
                 <div class="key-row" ng-if="levy.number !== 0">
-                  <div class="swatch" style="background: {{levy.color}}"></div> {{levy.name}} (${{levy.number}})
+                  <div class="swatch" style="background: {{levy.color}}"></div> {{levy.name}} (${{levy.rounded}} million)
                 </div>
               </div>
             </div>
@@ -33,7 +33,8 @@
 
 
         <div class="source">
-          <em>Sources: Seattle Budget Office, Office of Councilmember Tim Burgess</em>
+          <em>Note: Adjusted for inflation.<br>
+          Sources: Seattle Budget Office, Office of Councilmember Tim Burgess</em>
         </div>
         <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
       </div>
