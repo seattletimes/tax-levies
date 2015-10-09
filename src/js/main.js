@@ -8,15 +8,15 @@ require("angular");
 var app = angular.module("tax-levies", []);
 
 var c1 = "#2F2933";
-var c2 = "#53516E";
-var c3 = "#7D7AA6";
-var c4 = "#6578A6";
-var c5 = "#5FBAD9";
-var c6 = "#01A2A6";
-var c7 = "#29D9C2";
-var c8 = "#92F2B6";
-var c9 = "#BDF271";
-var c10 = "#FFE878";
+var c2 = "#7D7AA6";
+var c3 = "#53516E";
+var c4 = "#01A2A6";
+var c5 = "#29D9C2";
+var c6 = "#92F2B6";
+var c7 = "#BDF271";
+var c8 = "#A7A37E";
+var c9 = "#A7C520";
+var c10 = "#105B63";
 
 var housing = c10;
 var art = c9;
