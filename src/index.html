@@ -12,9 +12,20 @@
     <responsive-child>
 
       <div class="outmost" ng-controller="TaxController">
-        <div class="year" ng-repeat="year in data">
-          <div ng-repeat="levy in year" class="bar" ng-if="levy !== 'year'" style="width: {{levy.percent}}%; background: {{levy.color}}"></div>
+        
+        <div class="title">Title goes here</div>
+        <div class="chatter">Chatter goes here</div>
+        <div class="year" ng-repeat="(label,year) in data">
+          <div class="label">{{label}}</div>
+          <div class="bar-box">
+            <div ng-repeat="levy in year" class="bar" style="width: {{levy.percent}}%; background: {{levy.color}}"></div>
+          </div>
         </div>
+
+        <div class="source">
+          <em>Source: tktk</em>
+        </div>
+        <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
       </div>
 
     </responsive-child>
