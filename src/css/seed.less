@@ -26,12 +26,20 @@ body {
   font-weight: bold;
   font-size: 28px;
   text-align: center;
+
+  @media @mobile {
+    font-size: 24px;
+  }
 }
 
 .chatter {
   font-size: 15px;
   text-align: center;
   padding-bottom: 10px;
+
+  @media @mobile {
+    font-size: 14px;
+  }
 }
 
 .year {
@@ -52,7 +60,7 @@ body {
 .bar {
   height: 15px;
   display: inline-block;
-  outline: 1px solid white;
+  // outline: 1px solid white;
   margin-bottom: 2px;
 }
 

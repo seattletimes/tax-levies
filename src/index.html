@@ -15,10 +15,10 @@
         
         <div class="title">Title goes here</div>
         <div class="chatter">Chatter goes here</div>
-        <div class="year" ng-repeat="(label,year) in data">
-          <div class="label">{{label}}</div>
+        <div class="year" ng-repeat="year in data">
+          <div class="label">{{year.year}}</div>
           <div class="bar-box">
-            <div ng-repeat="levy in year" class="bar" style="width: {{levy.percent}}%; background: {{levy.color}}"></div>
+            <div ng-repeat="levy in year.levies" class="bar" style="width: {{levy.percent}}%; background: {{levy.color}}"></div>
           </div>
         </div>
 

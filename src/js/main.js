@@ -7,12 +7,12 @@ require("angular");
 
 var app = angular.module("tax-levies", []);
 
-var housing = '#008778';
-var families = '#f36f21';
-var seattleCenter = '#60489d';
-var parks = '#da2128';
-var transportation = "#3887ba";
-var other ='#e3a51d';
+var housing = '#d94801';
+var families = '#f16913';
+var seattleCenter = '#fdae6b';
+var parks = '#6a51a3';
+var transportation = "#807dba";
+var other ='#bcbddc';
 
 var levyLookup = {
   "1986 Low Income Housing": housing,
@@ -35,8 +35,8 @@ var levyLookup = {
   "2014 Preschool Levy": families
 };
 
+// find maximum
 var max = 0;
-
 taxData.forEach(function(year) {
   var total = 0;
   for (var levy in year) {
@@ -45,19 +45,21 @@ taxData.forEach(function(year) {
   if (total > max) max = total;
 });
 
-var data = {};
-
+// restructure data
+var data = [];
 taxData.forEach(function(year) {
-  data[year.year] = [];
+  var yearObj = { year: year.year };
+  yearObj.levies = [];
   for (var levy in year) {
     if (levy !== 'year') {
-      data[year.year].push({
+      yearObj.levies.push({
         number: year[levy],
         percent: year[levy] / max * 100,
         color: levyLookup[levy]
       });
     }
   }
+  data.push(yearObj);
 });
 
 app.controller("TaxController", ["$scope", function($scope) {
