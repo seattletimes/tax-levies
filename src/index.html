@@ -15,12 +15,12 @@
         
         <div class="title">Title goes here</div>
         <div class="chatter">Chatter goes here</div>
-        <div class="year" ng-click="showTooltip(year)" ng-repeat="year in data">
+        <div class="year" ng-click="showTooltip(year)" ng-class="{selected: selected == year}" ng-repeat="year in data">
           <div class="label" ng-class="{bolded: selected == year}">{{year.year}}</div>
           <div class="bar-box">
             <div ng-repeat="levy in year.levies" class="bar" ng-class="{bolded: selected == year}" style="width: {{levy.percent}}%; background: {{levy.color}}"></div>
 
-            <div class="key" ng-show="selected == year">
+            <div class="key" ng-class="{shown: selected == year}">
               <div class="key-box" ng-repeat="levy in year.levies">
                 <div class="key-row" ng-if="levy.number !== 0">
                   <div class="swatch" style="background: {{levy.color}}"></div> {{levy.name}} (${{levy.rounded}} million)
