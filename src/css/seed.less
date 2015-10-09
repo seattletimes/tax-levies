@@ -35,7 +35,7 @@ body {
 .chatter {
   font-size: 15px;
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 
   @media @mobile {
     font-size: 14px;
@@ -46,11 +46,43 @@ body {
   .display-flex();
   width: 100%;
   clear: both;
+  cursor: pointer;
+
+  &:hover {
+    * > {
+      opacity: 1;
+    }
+  }
+}
+
+.key {
+  padding-bottom: 10px;
+}
+
+.key-box {
+  display: inline-block;
+}
+
+.swatch {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  margin-right: 2px;
+  margin-left: 10px;
+}
+
+.label, .bar {
+  opacity: .5;
+
+  &.bolded {
+    opacity: 1;
+  }
 }
 
 .label {
   .flex(0 0 35px);
   display: inline-block;
+  font-weight: bold;
 }
 
 .bar-box {

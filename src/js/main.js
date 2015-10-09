@@ -16,23 +16,23 @@ var other ='#bcbddc';
 
 var levyLookup = {
   "1986 Low Income Housing": housing,
-  "Seattle Art Museum": other,
-  "1990 Families/Ed Levy": families,
+  "1990 Seattle Art Museum": other,
+  "1990 Families/Ed": families,
   "1991 Seattle Center/Comm Ctrs": seattleCenter,
   "1995 Low Income Housing": housing,
-  "1997 Families/Ed Levy": families,
+  "1997 Families/Ed": families,
   "1999 Seattle Center/Comm Ctrs": seattleCenter,
-  "2000 Parks for All Levy": parks,
+  "2000 Parks for All": parks,
   "2002 Low Income Housing": housing,
-  "Fire facilities levy": other,
-  "2004 Families/Ed Levy": families,
-  "Transportation": transportation,
-  "Pike Place Market": other,
-  "2008 Parks Levy": parks,
-  "2009 Housing Levy": housing,
-  "2011 Families/Ed Levy": families,
+  "2004 Fire Facilities": other,
+  "2004 Families/Ed": families,
+  "2006 Bridging the Gap Transportation": transportation,
+  "2009 Pike Place Market": other,
+  "2008 Parks": parks,
+  "2009 Housing": housing,
+  "2011 Families/Ed": families,
   "2012 Library": other,
-  "2014 Preschool Levy": families
+  "2014 Preschool": families
 };
 
 // find maximum
@@ -53,6 +53,7 @@ taxData.forEach(function(year) {
   for (var levy in year) {
     if (levy !== 'year') {
       yearObj.levies.push({
+        name: levy,
         number: year[levy],
         percent: year[levy] / max * 100,
         color: levyLookup[levy]
@@ -64,8 +65,11 @@ taxData.forEach(function(year) {
 
 app.controller("TaxController", ["$scope", function($scope) {
   $scope.data = data;
-  console.log($scope.data)
-
   $scope.max = max;
+  $scope.selected = $scope.data[0];
 
+  $scope.showTooltip = function(obj) {
+    $scope.selected = obj;
+  }
 }]);
+
