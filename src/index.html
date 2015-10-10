@@ -30,7 +30,7 @@
             </div>
 
             <div class="key" ng-class="{shown: selected == year}">
-              <div class="projected"><span ng-if="year.year == 2016">Projected</span> {{year.year}} levies:</div> 
+              <div class="projected"><span ng-if="year.year == 2016">Projected</span> {{year.year}} levies<span ng-if="year.year == 2016"> if Move Seattle is approved</span>:</div> 
               <div class="key-box" ng-repeat="levy in year.levies">
                 <div class="key-row" ng-if="levy.number !== 0">
                   <div class="swatch" ng-style="{background: levy.color}"></div> {{levy.name}} <strong>(${{levy.rounded}} million)</strong>
