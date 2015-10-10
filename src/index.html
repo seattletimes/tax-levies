@@ -16,14 +16,20 @@
         
         <div class="title">More and larger property-tax levies</div>
         <div class="chatter">
-          Click on a year to see the breakdown of Seattle voter-approved levies:</div>
+          Click on a year to see the breakdown of Seattle voter-approved levies:
+        </div>
+
         <div class="year" ng-click="showTooltip(year)" ng-class="{selected: selected == year}" ng-repeat="year in data">
+          
           <div class="label" ng-class="{bolded: selected == year}">{{year.year}}</div>
+
           <div class="bar-box">
-            <div ng-repeat="levy in year.levies" class="bar" ng-class="{bolded: selected == year}" ng-style="{width: levy.percent + '%', background: levy.color}"></div>
+            <div class="bars">
+              <div ng-repeat="levy in year.levies" class="bar" ng-class="{bolded: selected == year}" ng-style="{width: levy.percent + '%', background: levy.color}"></div>
+              <div class="total" ng-class="{bolded: selected == year, absolute: year.year == 2016}">${{year.total}} million</div>
+            </div>
 
             <div class="key" ng-class="{shown: selected == year}">
-
               <div class="projected"><span ng-if="year.year == 2016">Projected</span> {{year.year}} levies:</div> 
               <div class="key-box" ng-repeat="levy in year.levies">
                 <div class="key-row" ng-if="levy.number !== 0">
@@ -31,8 +37,10 @@
                 </div>
               </div>
             </div>
-
           </div>
+
+          <div class="filler"></div>
+
         </div>
 
         <div class="source">Note: This graphic shows only voter-approved property-tax dollars paid to the city. Numbers are adjusted for inflation.</div>

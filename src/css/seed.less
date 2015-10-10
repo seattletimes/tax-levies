@@ -113,8 +113,32 @@ body {
   }
 }
 
+.total {
+  width: 84px;
+  display: inline;
+  top: 0;
+  color: @df-middle-gray;
+  vertical-align: top;
+  padding-top: 2px;
+  padding-left: 4px;
+
+  &.bolded {
+    font-weight: bold;
+    color: black;
+  }
+
+  &.absolute {
+    position: absolute;
+    left: 100%;
+  }
+}
+
 .bar-box {
   .flex(1);
+}
+
+.bars {
+  position: relative;
 }
 
 .bar {
@@ -122,6 +146,10 @@ body {
   display: inline-block;
   // outline: 1px solid white;
   // margin-bottom: 2px;
+}
+
+.filler {
+  .flex(0 0 84px);
 }
 
 .source {
