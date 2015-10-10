@@ -57,26 +57,34 @@ var max = 0;
 taxData.forEach(function(year) {
   var total = 0;
   for (var levy in year) {
-    total += year[levy];
+    if (levy !== 'year' && levy !== 'total') {
+      total += year[levy];
+    }
   }
   if (total > max) max = total;
 });
 
+var round = function(num) {
+  return Math.round(num/100000)/10;
+}
+
 // restructure data
 var data = [];
 taxData.forEach(function(year) {
-  var yearObj = { year: year.year };
+  var yearObj = { 
+    year: year.year,
+    total: round(year.total)
+  };
   yearObj.levies = [];
   for (var levy in year) {
-    if (levy !== 'year') {
-      var rounded = Math.round(year[levy]/100000)/10;
+    if (levy !== 'year' && levy !== 'total') {
 
       yearObj.levies.push({
         name: levy,
         number: year[levy],
         percent: year[levy] / max * 100,
         color: levyLookup[levy],
-        rounded: rounded
+        rounded: round(year[levy])
       });
     }
   }
