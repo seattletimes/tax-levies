@@ -73,7 +73,8 @@ var data = [];
 taxData.forEach(function(year) {
   var yearObj = { 
     year: year.year,
-    total: round(year.total)
+    total: round(year.total),
+    label: "'" + year.year.toString().slice(-2)
   };
   yearObj.levies = [];
   for (var levy in year) {

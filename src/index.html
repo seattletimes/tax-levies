@@ -21,12 +21,12 @@
 
         <div class="year" ng-click="showTooltip(year)" ng-class="{selected: selected == year}" ng-repeat="year in data">
           
-          <div class="label" ng-class="{bolded: selected == year}">{{year.year}}</div>
+          <div class="label" ng-class="{bolded: selected == year}">{{year.label}}</div>
 
           <div class="bar-box">
             <div class="bars">
               <div ng-repeat="levy in year.levies" class="bar" ng-class="{bolded: selected == year}" ng-style="{width: levy.percent + '%', background: levy.color}"></div>
-              <div class="total" ng-class="{bolded: selected == year, absolute: year.year == 2016}">${{year.total}} million</div>
+              <div class="total" ng-class="{bolded: selected == year, absolute: year.year == 2016}"><span>${{year.total}}</span><span ng-if="year.year == 1990"> million</span></div>
             </div>
 
             <div class="key" ng-class="{shown: selected == year}">
